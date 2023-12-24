@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script>
+      const rootNode = document.getElementById("root");
+      const element = React.createElement(
+        "h3",
+        { id: "title", onMouseEnter: () => console.log("mouse entered") },
+        "Hello, I'm a span!"
+      ); // (tag_name, properties, content)
+
+      const btn_element = React.createElement(
+        "button",
+        { onClick: () => console.log("clicked") },
+        "Click Me"
+      );
+
+      const container = React.createElement("div", null, [
+        element,
+        btn_element,
+      ]);
+
+      // React 17 버전 ReactDOM render 방식
+      // ReactDOM.render(element, rootNode);
+
+      // React 18 버전 ReactDOM render 방식
+      ReactDOM.createRoot(rootNode).render(container);
+    </script>
+  </body>
+</html>
