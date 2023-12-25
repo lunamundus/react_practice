@@ -11,60 +11,25 @@
     <script type="text/babel">
       const rootNode = document.getElementById("root");
 
-      /* arrow function 형태 */
-      const Title = () => (
-        <h3 id="title" onMouseEnter={() => console.log("mouse entered")}>
-          Hello I'm a title
-        </h3>
-      );
+      let counter = 0;
 
-      /* 일반 function 형태 */
-      /* function Title() {
-        return (
-          <h3 id="title" onMouseEnter={() => console.log("mouse entered")}>
-            Hello I'm a title
-          </h3>
-        );
-      } */
+      function countUp() {
+        counter = counter + 1;
+        render();
+      }
 
-      const Button = () => (
-        <button
-          style={{ backgroundColor: "tomato" }}
-          onClick={() => console.log("clicked")}
-        >
-          Click Me
-        </button>
-      );
-
-      /* const title = React.createElement(
-        "h3",
-        { id: "title", onMouseEnter: () => console.log("mouse entered") },
-        "Hello, I'm a span!"
-      ); // (tag_name, properties, content) */
-
-      /* const btn = React.createElement(
-        "button",
-        {
-          style: { backgroundColor: "tomato" },
-          onClick: () => console.log("clicked"),
-        },
-        "Click Me"
-      ); */
+      function render() {
+        ReactDOM.createRoot(rootNode).render(<Container />);
+      }
 
       const Container = () => (
         <div>
-          <Title />
-          <Button />
+          <h3>Total Clicks : {counter}</h3>
+          <button onClick={countUp}>Click Me</button>
         </div>
       );
 
-      /* const container = React.createElement("div", null, [Title, Button]); */
-
-      // React 17 버전 ReactDOM render 방식
-      // ReactDOM.render(element, rootNode);
-
-      // React 18 버전 ReactDOM render 방식
-      ReactDOM.createRoot(rootNode).render(<Container />);
+      render();
     </script>
   </body>
 </html>
