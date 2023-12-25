@@ -6,24 +6,42 @@
 
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
       const rootNode = document.getElementById("root");
-      const element = React.createElement(
+
+      const title = (
+        <h3 id="title" onMouseEnter={() => console.log("mouse entered")}>
+          Hello I'm a title
+        </h3>
+      );
+
+      const btn = (
+        <button
+          style={{ backgroundColor: "tomato" }}
+          onClick={() => console.log("clicked")}
+        >
+          Click Me
+        </button>
+      );
+
+      /* const title = React.createElement(
         "h3",
         { id: "title", onMouseEnter: () => console.log("mouse entered") },
         "Hello, I'm a span!"
-      ); // (tag_name, properties, content)
+      ); // (tag_name, properties, content) */
 
-      const btn_element = React.createElement(
+      /* const btn = React.createElement(
         "button",
-        { onClick: () => console.log("clicked") },
+        {
+          style: { backgroundColor: "tomato" },
+          onClick: () => console.log("clicked"),
+        },
         "Click Me"
-      );
+      ); */
 
-      const container = React.createElement("div", null, [
-        element,
-        btn_element,
-      ]);
+      const container = React.createElement("div", null, [title, btn]);
 
       // React 17 버전 ReactDOM render 방식
       // ReactDOM.render(element, rootNode);
