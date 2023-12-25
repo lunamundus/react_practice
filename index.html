@@ -11,13 +11,23 @@
     <script type="text/babel">
       const rootNode = document.getElementById("root");
 
-      const title = (
+      /* arrow function 형태 */
+      const Title = () => (
         <h3 id="title" onMouseEnter={() => console.log("mouse entered")}>
           Hello I'm a title
         </h3>
       );
 
-      const btn = (
+      /* 일반 function 형태 */
+      /* function Title() {
+        return (
+          <h3 id="title" onMouseEnter={() => console.log("mouse entered")}>
+            Hello I'm a title
+          </h3>
+        );
+      } */
+
+      const Button = () => (
         <button
           style={{ backgroundColor: "tomato" }}
           onClick={() => console.log("clicked")}
@@ -41,13 +51,20 @@
         "Click Me"
       ); */
 
-      const container = React.createElement("div", null, [title, btn]);
+      const Container = () => (
+        <div>
+          <Title />
+          <Button />
+        </div>
+      );
+
+      /* const container = React.createElement("div", null, [Title, Button]); */
 
       // React 17 버전 ReactDOM render 방식
       // ReactDOM.render(element, rootNode);
 
       // React 18 버전 ReactDOM render 방식
-      ReactDOM.createRoot(rootNode).render(container);
+      ReactDOM.createRoot(rootNode).render(<Container />);
     </script>
   </body>
 </html>
