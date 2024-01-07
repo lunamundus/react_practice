@@ -7,19 +7,9 @@ function App() {
   const onClick = () => setCounter((prev) => prev + 1);
   const onChange = (event) => setKeyword(event.target.value);
 
-  // console.log("i run all the time");
-
   useEffect(() => {
     console.log("I run only once.");
   }, []);
-
-  // console.log("SEARCH FOR", keyword);
-
-  // useEffect(() => {
-  //   if (keyword !== "" && keyword.length > 5) {
-  //     console.log("SEARCH FOR", keyword);
-  //   }
-  // }, [keyword]);
 
   useEffect(() => {
     console.log("I run when keywords changes.");
