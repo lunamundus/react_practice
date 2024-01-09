@@ -13,6 +13,9 @@ function App() {
     setToDos((currentArray) => [toDo, ...currentArray]);
     setToDo("");
   };
+  const onDelete = (index) => {
+    setToDos(toDos.filter((_, curIndex) => curIndex !== index));
+  };
 
   console.log(toDos);
 
@@ -28,6 +31,14 @@ function App() {
         />
         <button>Add To Do</button>
       </form>
+      <hr />
+      <ul>
+        {toDos.map((item, index) => (
+          <li key={index}>
+            {item} <button onClick={() => onDelete(index)}>❌</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
