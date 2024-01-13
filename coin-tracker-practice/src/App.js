@@ -35,7 +35,6 @@ function App() {
         <strong>Loading...</strong>
       ) : (
         <select onChange={onSelect}>
-          <option key={-1}>Select Coin</option>
           {coins.map((coin) => (
             <option key={coin.id} value={coin.quotes.USD.price}>
               {coin.name} ({coin.symbol}): $ {coin.quotes.USD.price.toFixed(2)}{" "}
